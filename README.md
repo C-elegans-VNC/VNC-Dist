@@ -41,3 +41,5 @@ Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based tool for quantifica
 
 
 # Installation and Usage
+
+This pipeline is compatible with Python 3.9 - 3.12
