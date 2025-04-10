@@ -19,6 +19,9 @@ VNC-Dist pipeline(Ventral Nerve Cord Distances)(v1.0), a semi-automated software
 
 VNC-Dist was written by Saber Saharkhiz from Drs. Antonio Colavita & Theodore J. Perkins' Lab. To learn more about it, read the [paper](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract).
 
+<p align="center">
+  <img src="images/Pipeline Design.png" alt="VNC-Dist workflow" width="800">
+</p>
 
 
 # CITATION
