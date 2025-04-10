@@ -58,6 +58,6 @@ This pipeline is compatible with Python 3.9 - 3.12 and offers two options for ru
 
 
 ### Notes
-SAM-Plus should run on a system with a dedicated GPU like NVIDIA GeForce RTX
+SAM-Plus should run on a system with a dedicated GPU like NVIDIA GeForce RTX.
 
 
