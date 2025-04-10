@@ -26,6 +26,8 @@ Shah, Pavak K., et al. "PCP and SAX-3/Robo pathways cooperate to regulate conver
 
 # Overview
 
+The following figure outlines the design of the VNC-Dist pipeline. First, CZI images are compressed and merged, and neuron coordinates are extracted using Fiji/ImageJ. These data are then processed in two steps: (a) SAM-Plus and (b) VNC-Quant.
+
 <p align="center">
   <img src="images/Pipeline Design.png" alt="VNC-Dist workflow" width="800">
 </p>
