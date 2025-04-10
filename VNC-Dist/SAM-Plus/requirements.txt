@@ -1,0 +1,9 @@
+streamlit
+opencv-python
+matplotlib
+torch
+tqdm
+numpy
+Pillow
+./segment-anything-main
+
