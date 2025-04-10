@@ -68,7 +68,7 @@ docker pull ssaha078/sam_plus_vnc:latest
 ```
 
 ### Notes
-SAM-Plus should run on a system with a dedicated GPU, such as an NVIDIA GeForce RTX.
+SAM-Plus mandates a dedicated GPU (e.g., NVIDIA GeForce RTX).
 
 
 
