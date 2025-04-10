@@ -12,12 +12,19 @@
 
 
 
-Ventral Nerve Cord neuronal positioning analysis               
+### Ventral Nerve Cord neuronal positioning analysis      
+
+* This repository features a Python backend and a Streamlit Docker app that implement SAM-Plus for worm segmentation and VNC-Quant for measuring distances. It calculates the normalized relative distances of SAB, DA, DD, and DB neurons along the AP axis of VNC, using SABVL (0%) and the rectum (100%) as reference points.
+
+* VNC-Dist pipeline(Ventral Nerve Cord Distances)(v1.0), a semi-automated software toolbox designed to overcome the limitations of subjective motoneuron positioning analysis in microscopy.
+
+* VNC-Dist was written by Saber Saharkhiz from Drs. Antonio Colavita & Theodore J. Perkins' Lab. To learn more about it, read the [paper](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract).
+* For insights into the significance of this pipeline for studying neuronal positioning in the VNC of C. elegans, please refer to the following [paper](https://www.cell.com/developmental-cell/fulltext/S1534-5807(17)30210-1):
+
+Shah, Pavak K., et al. "PCP and SAX-3/Robo pathways cooperate to regulate convergent extension-based nerve cord assembly in C. elegans." Developmental cell 41.2 (2017): 195-203.
 
 
-VNC-Dist pipeline(Ventral Nerve Cord Distances)(v1.0), a semi-automated software toolbox designed to overcome the limitations of subjective motoneuron positioning analysis in microscopy.
-
-VNC-Dist was written by Saber Saharkhiz from Drs. Antonio Colavita & Theodore J. Perkins' Lab. To learn more about it, read the [paper](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract).
+# Overview
 
 <p align="center">
   <img src="images/Pipeline Design.png" alt="VNC-Dist workflow" width="800">
