@@ -31,4 +31,4 @@ If you use VNC-Dist, please cite the [paper](https://www.biorxiv.org/content/10.
 Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based tool for quantification of neuronal positioning in the ventral nerve cord of C. elegans." bioRxiv (2024): 2024-11.
 
 
-# Installation
+# Installation and Usage
