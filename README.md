@@ -42,4 +42,15 @@ Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based tool for quantifica
 
 # Installation and Usage
 
-This pipeline is compatible with Python 3.9 - 3.12
+This pipeline is compatible with Python 3.9 through 3.12 and offers two options for running SAM-Plus and VNC-Quant:
+
+- **Local Execution:**  
+  Run the Python files locally in a virtual environment using the required packages and dependencies listed in [SAM-Plus's requirements.txt](VNC-Dist/SAM-Plus/requirements.txt) and [VNC-Quant's requirements.txt](VNC-Dist/VNC-Quant/requirements.txt). You can start the respective GUIs by executing [SAM-Plus_GUI.py](VNC-Dist/SAM-Plus/SAM-Plus_GUI.py) for SAM-Plus and [VNC-Quant_GUI.py](VNC-Dist/VNC-Quant/VNC-Quant_GUI.py) for VNC-Quant.
+
+- **Docker-based Execution (Recommended):**  
+  Execute the pipeline using Docker images by installing Docker on your system (available for Windows, Mac, or Linux).
+
+### Notes
+SAM-Plus should run on a system with a dedicated GPU like NVIDIA GeForce RTX
+
+
