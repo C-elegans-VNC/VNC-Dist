@@ -67,10 +67,15 @@ This pipeline is compatible with Python 3.9 - 3.12 and nd can be easily installe
 ```bash
 docker pull ssaha078/vnc_quant_gui:latest
 ```
-- 2) Run the Container in your terminal: (port: 8501)
+- 2) Run the Container in your terminal:
 ```bash
-docker run -d -p 8501:8501 --name vnc_quant_gui ssaha078/vnc_quant_gui:latest
+docker run -d -p 8501:8501 ssaha078/vnc_quant_gui:latest
 ```
+- 3)  Open your web browser and navigate to:(port: 8501)
+ ```bash
+http://localhost:8501
+```
+
 
 ### SAM-Plus GUI
 - 1) Pull the Image from Docker Hub:
@@ -78,11 +83,27 @@ docker run -d -p 8501:8501 --name vnc_quant_gui ssaha078/vnc_quant_gui:latest
 ```bash
 docker pull ssaha078/sam_plus_vnc:latest
 ```
-- 2) Run the Container in your terminal: (port: 8502)
+- 2) Run the Container in your terminal:
  ```bash
 docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
 ```
-  
+- 3)  Open your web browser and navigate to:(port: 8502)
+ ```bash
+http://localhost:8502
+```
+
+### Verifying It Works: 
+ ```bash
+docker ps 
+```
+
+Your containers appear in the list as ssaha078/vnc_quant_gui:latest (VNC-Quant) and ssaha078/sam_plus_vnc:latest (SAM-Plus), each with its container ID.
+
+### To stop the running container:
+ ```bash
+docker stop [CONTAINER ID]
+```
+
 ### Notes
 SAM-Plus mandates a dedicated GPU (e.g., NVIDIA GeForce RTX).
 
