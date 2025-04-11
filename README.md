@@ -92,7 +92,7 @@ docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
 http://localhost:8502
 ```
 
-### Verifying It Works: 
+### Verifying it works: 
  ```bash
 docker ps 
 ```
