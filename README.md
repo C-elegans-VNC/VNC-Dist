@@ -53,21 +53,22 @@ This pipeline supports Python 3.9–3.12 and can be easily installed to run SAM-
 
 
 
-<div style="overflow:auto;">
-  <div style="float:right; width:100px; margin-left:10px;">
-    <img src="images/Docker.png" alt="Docker Logo" width="100"/>
-  </div>
+
   
-**Docker-based Execution (Recommended):**  
-  Execute the pipeline using Docker images by installing [Docker](https://www.docker.com/products/docker-desktop/) on your system (available for Windows, Mac, or Linux).
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <strong>Docker-based Execution (Recommended):</strong>
+  <img src="images/Docker.png" alt="Docker Logo" width="100"/>
+</div>
+  
+Execute the pipeline using Docker images by installing [Docker](https://www.docker.com/products/docker-desktop/) on your system (available for Windows, Mac, or Linux).
 
 ### VNC-Quant GUI
 
-1) Pull the Image from Docker Hub:
+1) Download the Docker image from Docker Hub:
 ```bash
 docker pull ssaha078/vnc_quant_gui:latest
 ```
-2) Run the Container in your terminal:
+2) Launch the Docker container from your command prompt:
 ```bash
 docker run -d -p 8501:8501 ssaha078/vnc_quant_gui:latest
 ```
@@ -77,13 +78,13 @@ http://localhost:8501
 ```
 
 
-### SAM-Plus GUI
-1) Pull the Image from Docker Hub:
+### SAM-Plus GUI (on dedicated GPU) <img src="images/NVIDIA.png" width="70" align="right" alt="NVIDIA Logo">
+1) Download the Docker image from Docker Hub:
 
 ```bash
 docker pull ssaha078/sam_plus_vnc:latest
 ```
-2) Run the Container in your terminal:
+2) Launch the Docker container from your command prompt:
  ```bash
 docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
 ```
