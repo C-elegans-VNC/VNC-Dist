@@ -78,7 +78,7 @@ http://localhost:8501
 ```
 
 
-### SAM-Plus GUI (on dedicated GPU) <img src="images/NVIDIA.png" width="70" align="right" alt="NVIDIA Logo">
+### SAM-Plus GUI (on dedicated GPU)
 1) Download the Docker image from Docker Hub:
 
 ```bash
