@@ -55,10 +55,12 @@ This pipeline supports Python 3.9–3.12 and can be easily installed to run SAM-
 
 
   
-<div style="display: flex; justify-content: space-between; align-items: center;">
-  <strong>Docker-based Execution (Recommended):</strong>
+- <div style="display: flex; justify-content: space-between; align-items: center;">
+  <strong style="font-size: 2.2em;">Docker-based Execution (Recommended):</strong>
   <img src="images/Docker.png" alt="Docker Logo" width="100"/>
 </div>
+
+
   
 Execute the pipeline using Docker images by installing [Docker](https://www.docker.com/products/docker-desktop/) on your system (available for Windows, Mac, or Linux).
 
