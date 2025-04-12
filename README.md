@@ -63,31 +63,31 @@ This pipeline supports Python 3.9–3.12 and can be easily installed to run SAM-
 
 ### VNC-Quant GUI
 
-- 1) Pull the Image from Docker Hub:
+1) Pull the Image from Docker Hub:
 ```bash
 docker pull ssaha078/vnc_quant_gui:latest
 ```
-- 2) Run the Container in your terminal:
+2) Run the Container in your terminal:
 ```bash
 docker run -d -p 8501:8501 ssaha078/vnc_quant_gui:latest
 ```
-- 3)  Open your web browser and navigate to:(port: 8501)
+3)  Open your web browser and navigate to:(port: 8501)
  ```bash
 http://localhost:8501
 ```
 
 
 ### SAM-Plus GUI
-- 1) Pull the Image from Docker Hub:
+1) Pull the Image from Docker Hub:
 
 ```bash
 docker pull ssaha078/sam_plus_vnc:latest
 ```
-- 2) Run the Container in your terminal:
+2) Run the Container in your terminal:
  ```bash
 docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
 ```
-- 3)  Open your web browser and navigate to:(port: 8502)
+3)  Open your web browser and navigate to:(port: 8502)
  ```bash
 http://localhost:8502
 ```
