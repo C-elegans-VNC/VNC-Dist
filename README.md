@@ -49,7 +49,7 @@ Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based tool for quantifica
 
 # Installation and Usage
 
-This pipeline is compatible with Python 3.9 - 3.12 and nd can be easily installed for running SAM-Plus and VNC-Quant.
+This pipeline supports Python 3.9–3.12 and can be easily installed to run SAM-Plus and VNC-Quant.
 
 
 
@@ -58,7 +58,7 @@ This pipeline is compatible with Python 3.9 - 3.12 and nd can be easily installe
     <img src="images/Docker.png" alt="Docker Logo" width="100"/>
   </div>
   
-  - **Docker-based Execution (Recommended):**  
+**Docker-based Execution (Recommended):**  
   Execute the pipeline using Docker images by installing [Docker](https://www.docker.com/products/docker-desktop/) on your system (available for Windows, Mac, or Linux).
 
 ### VNC-Quant GUI
