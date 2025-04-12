@@ -77,6 +77,7 @@ docker run -d -p 8501:8501 ssaha078/vnc_quant_gui:latest
 http://localhost:8501
 ```
 
+--------------------------------------------------------------
 
 ### SAM-Plus GUI (on dedicated GPU)
 1) Download the Docker image from Docker Hub:
@@ -92,6 +93,7 @@ docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
  ```bash
 http://localhost:8502
 ```
+------------------------------------------------------------
 
 ### Verifying it works: 
  ```bash
@@ -104,6 +106,7 @@ Your containers appear in the list as ssaha078/vnc_quant_gui:latest (VNC-Quant) 
  ```bash
 docker stop [CONTAINER ID]
 ```
+--------------------------------------------------------------
 
 ### Notes
 SAM-Plus mandates a dedicated GPU (e.g., NVIDIA GeForce RTX).
