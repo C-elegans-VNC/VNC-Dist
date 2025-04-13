@@ -23,14 +23,14 @@
 
 
 
-### Robust and unbiased pipeline for Ventral Nerve Cord neuronal positioning analysis in C.elegans
+### Robust and unbiased pipeline for Ventral Nerve Cord neuronal positioning analysis in *C.elegans*
 
 * This repository features a Python backend and a Streamlit Docker app that implement SAM-Plus for worm segmentation and VNC-Quant for measuring distances. It calculates the normalized relative distances of SAB, DA, DD, and DB neurons along the AP axis of VNC, using SABVL (0%) and the rectum (100%) as reference points.
 
 * VNC-Dist pipeline(Ventral Nerve Cord Distances)(v1.0), a semi-automated software toolbox designed to overcome the limitations of subjective motoneuron positioning analysis in microscopy.
 
 * VNC-Dist was written by Saber Saharkhiz from Drs. Antonio Colavita & Theodore J. Perkins' Lab. To learn more about it, read the [paper](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract).
-* For insights into the significance of this pipeline for studying neuronal positioning in the VNC of C. elegans, please refer to the following [paper](https://www.cell.com/developmental-cell/fulltext/S1534-5807(17)30210-1) from our lab:
+* For insights into the significance of this pipeline for studying neuronal positioning in the VNC of *C. elegans*, please refer to the following [paper](https://www.cell.com/developmental-cell/fulltext/S1534-5807(17)30210-1) from our lab:
 
 Shah, Pavak K., et al. "PCP and SAX-3/Robo pathways cooperate to regulate convergent extension-based nerve cord assembly in C. elegans." Developmental cell 41.2 (2017): 195-203.
 
@@ -48,7 +48,7 @@ The following figure outlines the design of the VNC-Dist pipeline. First, CZI im
 If you use VNC-Dist, please cite the [paper](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract):
 
 
-Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based tool for quantification of neuronal positioning in the ventral nerve cord of C. elegans." bioRxiv (2024): 2024-11.
+Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based pipeline for quantification of neuronal positioning in the ventral nerve cord of C. elegans." bioRxiv (2024): 2024-11.
 
 
 # Installation and Usage
