@@ -23,7 +23,7 @@
 
 
 
-### Unbiased and robust pipeline for Ventral Nerve Cord neuronal positioning analysis in C.elegans
+### Robust and unbiased pipeline for Ventral Nerve Cord neuronal positioning analysis in C.elegans
 
 * This repository features a Python backend and a Streamlit Docker app that implement SAM-Plus for worm segmentation and VNC-Quant for measuring distances. It calculates the normalized relative distances of SAB, DA, DD, and DB neurons along the AP axis of VNC, using SABVL (0%) and the rectum (100%) as reference points.
 
