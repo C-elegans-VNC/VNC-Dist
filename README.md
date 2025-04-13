@@ -1,7 +1,8 @@
 [![SAM-Plus](https://img.shields.io/docker/image-size/ssaha078/sam_plus_vnc/latest.svg?label=SAM-Plus)](https://hub.docker.com/r/ssaha078/sam_plus_vnc)
 [![VNC-Quant](https://img.shields.io/docker/image-size/ssaha078/vnc_quant_gui/latest.svg?label=VNC-Quant)](https://hub.docker.com/r/ssaha078/vnc_quant_gui)
 [![Cite Paper](https://img.shields.io/badge/Cite%20Paper-green)](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract)
-[![Colavita & Perkins Lab](https://img.shields.io/badge/Colavita%20%26%20Perkins%20Lab-darkorange)](https://www.uottawa.ca/faculty-medicine/)
+[![Colavita & Perkins Lab](https://img.shields.io/badge/Colavita%20%26%20Perkins%20Lab-darkred)](https://www.uottawa.ca/faculty-medicine/)
+
 
 
 
