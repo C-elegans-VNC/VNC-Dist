@@ -23,7 +23,7 @@
 
 
 
-### Unbiased and robust pipeline for Ventral Nerve Cord neuronal positioning analysis      
+### Unbiased and robust pipeline for Ventral Nerve Cord neuronal positioning analysis in C.elegans
 
 * This repository features a Python backend and a Streamlit Docker app that implement SAM-Plus for worm segmentation and VNC-Quant for measuring distances. It calculates the normalized relative distances of SAB, DA, DD, and DB neurons along the AP axis of VNC, using SABVL (0%) and the rectum (100%) as reference points.
 
@@ -68,7 +68,8 @@ This pipeline supports Python 3.9–3.12 and can be easily installed to run SAM-
   
 Execute the pipeline using Docker images by installing [Docker](https://www.docker.com/products/docker-desktop/) on your system (available for Windows, Mac, or Linux).
 
-### VNC-Quant GUI
+<img src="https://img.shields.io/badge/VNC--Quant%20GUI-red?style=flat" width="135" alt="VNC-Quant GUI">
+
 
 1) Download the Docker image from Docker Hub:
 ```bash
@@ -85,7 +86,9 @@ http://localhost:8501
 
 --------------------------------------------------------------
 
-### SAM-Plus GUI (on dedicated GPU)
+<img src="https://img.shields.io/badge/SAM--Plus%20GUI-red?style=flat" width="135" alt="SAM-Plus GUI">
+
+
 1) Download the Docker image from Docker Hub:
 
 ```bash
