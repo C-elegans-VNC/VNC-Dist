@@ -123,10 +123,10 @@ SAM-Plus mandates a dedicated GPU (e.g., NVIDIA GeForce RTX).
   <table style="border-collapse: collapse; border: 0;">
     <tr>
       <td align="right" style="border: 0; padding: 0;">
-        <img src="VNC-Dist/VNC-Quant/assets/TOH.png" alt="TOH logo" width="120" style="border: 0; display: block;" />
+        <img src="VNC-Dist/VNC-Quant/assets/TOH.png" alt="TOH logo" width="130" style="border: 0; display: block;" />
       </td>
       <td align="left" style="border: 0; padding: 0;">
-        <img src="VNC-Dist/VNC-Quant/assets/uOttawaMed.png" alt="uOttawaMed logo" width="120" style="border: 0; display: block;" />
+        <img src="VNC-Dist/VNC-Quant/assets/uOttawaMed.png" alt="uOttawaMed logo" width="210" style="border: 0; display: block;" />
       </td>
     </tr>
   </table>
