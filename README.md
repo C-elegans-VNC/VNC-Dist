@@ -103,6 +103,8 @@ docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
 http://localhost:8502
 ```
 ------------------------------------------------------------
+- Launcher files (.bat for Windows and .sh for Linux) are available for quick desktop access. You can find them in [VNC-Dist/SAM-Plus](./VNC-Dist/SAM-Plus) and [VNC-Dist/VNC-Quant](./VNC-Dist/VNC-Quant).
+--------------------------------------------------------------------
 
 ### Verifying it works: 
  ```bash
@@ -116,7 +118,6 @@ Your containers appear in the list as ssaha078/vnc_quant_gui:latest (VNC-Quant) 
 docker stop [CONTAINER ID]
 ```
 
-- Launcher files (.bat for Windows and .sh for Linux) are available for quick desktop access. You can find them in [VNC-Dist/SAM-Plus](./VNC-Dist/SAM-Plus) and [VNC-Dist/VNC-Quant](./VNC-Dist/VNC-Quant).
 
 --------------------------------------------------------------
 
