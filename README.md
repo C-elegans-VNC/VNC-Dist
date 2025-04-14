@@ -75,7 +75,7 @@ Execute the pipeline using Docker images by installing [Docker](https://www.dock
 ```bash
 docker pull ssaha078/vnc_quant_gui:latest
 ```
-2) Launch the Docker container from your command prompt:
+2) Launch the GUI from your command prompt:
 ```bash
 docker run -d -p 8501:8501 ssaha078/vnc_quant_gui:latest
 ```
@@ -94,7 +94,7 @@ http://localhost:8501
 ```bash
 docker pull ssaha078/sam_plus_vnc:latest
 ```
-2) Launch the Docker container from your command prompt:
+2) Launch the GUI from your command prompt:
  ```bash
 docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
 ```
