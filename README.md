@@ -71,7 +71,7 @@ Execute the pipeline using Docker images by installing [Docker](https://www.dock
 <img src="https://img.shields.io/badge/VNC--Quant%20GUI-red?style=flat" width="135" alt="VNC-Quant GUI">
 
 
-1) Download this web-based GUI from Docker Hub:
+1) Download this web-based GUI from Docker Hub: (fully functional offline)
 ```bash
 docker pull ssaha078/vnc_quant_gui:latest
 ```
@@ -89,7 +89,7 @@ http://localhost:8501
 <img src="https://img.shields.io/badge/SAM--Plus%20GUI-red?style=flat" width="135" alt="SAM-Plus GUI">
 
 
-1) Download this web-based GUI from Docker Hub:
+1) Download this web-based GUI from Docker Hub: (fully functional offline)
 
 ```bash
 docker pull ssaha078/sam_plus_vnc:latest
