@@ -34,7 +34,7 @@
 
 Shah, Pavak K., et al. "PCP and SAX-3/Robo pathways cooperate to regulate convergent extension-based nerve cord assembly in C. elegans." Developmental cell 41.2 (2017): 195-203.
 
-- ####  This pipeline is also adaptable for various *C. elegans* cell positioning analyses across developmental stages, quantifying ventral, dorsal, and midline cell-to-cell distances along the AP axis via one-pixel skeletonization for midline analysis, parametric spline fitting with adaptive Gaussian quadrature for curve length calculation, along with machine learning for worm outline extraction.
+- ####  This pipeline is also adaptable for various *C. elegans* cell positioning analyses across developmental stages, quantifying ventral, dorsal, and midline cell-to-cell distances along the AP axis via one-pixel skeletonization for midline extraction, parametric spline fitting with adaptive Gaussian quadrature for curve length calculation, along with machine learning for worm outline extraction.
 
 
 
