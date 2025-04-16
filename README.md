@@ -92,6 +92,32 @@ http://localhost:8501
 --------------------------------------------------------------
 <img src="https://img.shields.io/badge/SAM--Plus%20GUI-red?style=flat" width="135" alt="SAM-Plus GUI">
 
+### for Windows:
+
+1) Download & Unzip:  
+
+https://zenodo.org/records/15232152
+
+2) Navigate into the unzipped folder from your command prompt:
+
+```bash
+cd /path/to/your/SAM-Plus_GUI
+```
+3) Build the web-based GUI:
+
+```bash
+docker build -t sam-plus-vnc .
+```
+4) Launch the GUI:
+```bash
+docker run -d -p 8502:8501 sam_plus_vnc:latest
+```
+
+5)  Open your web browser and navigate to:(port: 8502)
+ ```bash
+http://localhost:8502
+```
+
 ### for Linux:
 
 
@@ -117,7 +143,7 @@ http://localhost:8502
 docker ps 
 ```
 
-Your containers appear in the list as ssaha078/vnc_quant_gui:latest (VNC-Quant) and ssaha078/sam_plus_vnc:latest (SAM-Plus), each with its container ID.
+Your containers appear in the list as ssaha078/vnc_quant_gui:latest (VNC-Quant) and sam_plus_vnc:latest (SAM-Plus), each with its container ID.
 
 ### To stop the running container:
  ```bash
