@@ -78,11 +78,11 @@ Execute the pipeline using Docker images by installing [Docker](https://www.dock
 
 1) Download this web-based GUI from Docker Hub: (fully functional offline)
 ```bash
-docker pull ssaha078/vnc-quant-gui:latest
+docker pull ssaha078/vnc_quant_gui:latest
 ```
 2) Launch the GUI from your command prompt:
 ```bash
-docker run -d -p 8501:8501 ssaha078/vnc-quant-gui:latest
+docker run -d -p 8501:8501 ssaha078/vnc_quant_gui:latest
 ```
 3)  Open your web browser and navigate to:(port: 8501)
  ```bash
