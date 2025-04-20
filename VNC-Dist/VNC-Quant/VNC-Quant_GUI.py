@@ -1,6 +1,3 @@
-################################################################################
-# Imports
-################################################################################
 import streamlit as st
 import tkinter as tk
 from tkinter import filedialog, simpledialog, messagebox
@@ -14,7 +11,7 @@ import os
 import tempfile
 import zipfile
 import io
-from pathlib import Path  # Import pathlib for path handling
+from pathlib import Path
 from skimage.morphology import skeletonize, dilation, square
 from scipy.ndimage import convolve
 from scipy.optimize import minimize
@@ -24,36 +21,26 @@ from PIL import Image
 import numpy as np
 import cv2
 import warnings
-import base64  # Import base64 for image encoding
-import re  # For regex in dot plot color determination
+import base64
+import re
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from scipy import stats
+from skimage.graph import route_through_array
 
-# Additional imports for Arrow tab processing
-import tkinter as tk
-from tkinter import filedialog, ttk, messagebox
-
-# Suppress warnings
 warnings.filterwarnings("ignore")
 
-# Compatibility handling for Resampling in Pillow
 try:
     from PIL import Image
-
     resample_method = Image.Resampling.LANCZOS
 except AttributeError:
     resample_method = Image.LANCZOS
 
-################################################################################
-# Inactivity timer code for Streamlit
-################################################################################
-TIMEOUT_SECONDS = 300  # 5 minutes of inactivity before auto-shutdown
+TIMEOUT_SECONDS = 300
 
 def inactivity_monitor():
-    """Background thread that checks for user inactivity and shuts down after TIMEOUT_SECONDS."""
     while True:
-        time.sleep(10)  # Check every 10 seconds
+        time.sleep(10)
         if time.time() - st.session_state["last_interaction"] > TIMEOUT_SECONDS:
             st.write(f"No activity detected for {TIMEOUT_SECONDS} seconds. Shutting down.")
             sys.exit(0)
@@ -68,10 +55,6 @@ if "inactivity_thread" not in st.session_state:
 
 st.session_state["last_interaction"] = time.time()
 
-################################################################################
-# Original Tkinter-based QQ-Shapiro Code (adapted as a function for Streamlit)
-################################################################################
-# Define neurons of interest for QQ-Shapiro analysis
 neurons_of_interest = [
     "SABVR", "SABD", "DA1", "DA2", "DA3", "DA4", "DA5", "DA6", "DA7",
     "DA8", "DA9", "DD1", "DD2", "DD3", "DD4", "DD5", "DD6", "DB1", "DB2",
@@ -79,10 +62,6 @@ neurons_of_interest = [
 ]
 
 def qq_shapiro_analysis(data_files, genotype_names):
-    """
-    Create a QQ-plot grid for the given datasets and return the matplotlib figure
-    and a DataFrame with Shapiro–Wilk test results.
-    """
     datasets = []
     for file_obj, genotype in zip(data_files, genotype_names):
         try:
@@ -154,13 +133,7 @@ def qq_shapiro_analysis(data_files, genotype_names):
     shapiro_df = pd.DataFrame(shapiro_results).sort_values(by=["Neuron", "Genotype"])
     return fig, shapiro_df
 
-################################################################################
-# Original Functions for Violin-Box Plot, CSV Processing, WormMeasure, Dot Plot, etc.
-################################################################################
 def violin_box_plot(data_files, genotype_names):
-    """
-    Create a violin + box plot using the provided CSV file objects and genotype names.
-    """
     datasets = []
     for file_obj, genotype in zip(data_files, genotype_names):
         try:
@@ -228,9 +201,6 @@ def violin_box_plot(data_files, genotype_names):
     return fig
 
 def process_csv(input_path):
-    """
-    Process a Relative Distances CSV by pivoting it to show normalized cumulative lengths.
-    """
     data = pd.read_csv(input_path)
     columns_to_keep = [
         "DA", "DD", "DB",
@@ -257,6 +227,16 @@ def process_csv(input_path):
             else:
                 pivot_data[obs] = pd.Series(dtype=float)
     return pivot_data
+
+def find_endpoints(skeleton):
+    endpoints = []
+    for y in range(1, skeleton.shape[0] - 1):
+        for x in range(1, skeleton.shape[1] - 1):
+            if skeleton[y, x]:
+                neighbors = np.sum(skeleton[y-1:y+2, x-1:x+2]) - 1
+                if neighbors == 1:
+                    endpoints.append((x, y))
+    return endpoints
 
 class WormMeasure:
     def __init__(self, image_file, csv_file, projection_images_dir, relative_distances_dir):
@@ -298,6 +278,8 @@ class WormMeasure:
     def process_image(self):
         gray_image = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
         _, binary_image = cv2.threshold(gray_image, 1, 255, cv2.THRESH_BINARY)
+        skeleton = skeletonize(binary_image == 255)
+        self.skeleton = skeleton
         contours, _ = cv2.findContours(binary_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         self.contour_image = self.image.copy()
         cv2.drawContours(self.contour_image, contours, -1, (0, 255, 0), thickness=-1)
@@ -431,7 +413,7 @@ class WormMeasure:
         image_name = os.path.splitext(os.path.basename(self.image_file.name))[0]
         print("Shape of self.color_worm_arr:", self.color_worm_arr.shape)
         print(f"Length of the largest contour: {len(contour_points)}")
-        plt.figure(figsize=(11, 11))
+        plt.figure(figsize=(10, 10))
         image_with_lightgray_background = self.image.copy()
         image_with_lightgray_background[binary_image == 0] = [211, 211, 211]
         plt.imshow(cv2.cvtColor(image_with_lightgray_background, cv2.COLOR_BGR2RGB))
@@ -479,6 +461,27 @@ class WormMeasure:
                 plt.text(row["X"], row["Y"], str(row["DD"]), color="red", fontsize=1)
             elif not pd.isna(row["DB"]) and row["DB"] != "Unknown":
                 plt.text(row["X"], row["Y"], str(row["DB"]), color="darkgoldenrod", fontsize=1)
+        if hasattr(self, 'skeleton'):
+            endpoints = find_endpoints(self.skeleton)
+            if len(endpoints) >= 2:
+                max_dist = 0
+                best_pair = None
+                for i in range(len(endpoints)):
+                    for j in range(i+1, len(endpoints)):
+                        p1 = endpoints[i]
+                        p2 = endpoints[j]
+                        dist = np.linalg.norm(np.array(p1) - np.array(p2))
+                        if dist > max_dist:
+                            max_dist = dist
+                            best_pair = (p1, p2)
+                if best_pair:
+                    start = (best_pair[0][1], best_pair[0][0])  # (y, x)
+                    end = (best_pair[1][1], best_pair[1][0])  # (y, x)
+                    cost_array = np.where(self.skeleton, 1, 10000).astype(float)
+                    path, _ = route_through_array(cost_array, start=start, end=end, fully_connected=True)
+                    path_x = [p[1] for p in path]  # column
+                    path_y = [p[0] for p in path]  # row
+                    plt.plot(path_x, path_y, color="black", linestyle="dashed", linewidth=1, label="Midline")
         plt.text(self.image.shape[1] / 2, -4, image_name, color="black", fontsize=10, backgroundcolor="lightblue")
         plt.axis("off")
         plt.savefig(self.output_image_path, bbox_inches="tight", pad_inches=1)
@@ -671,26 +674,17 @@ def create_subplots(traces, fixed_y_value, fixed_y_value_db, fixed_y_value_da8, 
     return fig
 
 def rank_features(df):
-    """
-    Rank the features (columns) in the dataframe except for "filename", "Rectum", and SAB classes.
-    """
     columns_to_rank = [col for col in df.columns if col not in ["filename", "Rectum", "SABVL", "SABVR", "SABD"]]
     df_ranked = df.copy()
     df_ranked[columns_to_rank] = df[columns_to_rank].rank(axis=1, method="min").astype(int)
     return df_ranked
 
 def process_csv_file(input_file):
-    """
-    Read a CSV file and return a dataframe with ranked features.
-    """
     df = pd.read_csv(input_file)
     df_ranked = rank_features(df)
     return df_ranked
 
 def create_bar_plot_on_ax(df_ranked, plot_title, ax):
-    """
-    Create a horizontal bar plot on the given axis based on the ranked dataframe.
-    """
     columns_to_rank = [col for col in df_ranked.columns if col not in ["filename", "Rectum", "SABVL", "SABVR", "SABD"]]
     df_ranked_sorted = df_ranked.sort_values(by=columns_to_rank)
     for i, (index, row) in enumerate(df_ranked_sorted.iterrows()):
@@ -723,9 +717,6 @@ def create_bar_plot_on_ax(df_ranked, plot_title, ax):
     for spine in ax.spines.values():
         spine.set_visible(False)
 
-################################################################################
-# New Arrow Tab Functions (converted from provided tkinter-based code)
-################################################################################
 def da_calculate_cohens_d(group1, group2):
     n1, n2 = len(group1), len(group2)
     mean1, mean2 = group1.mean(), group2.mean()
@@ -927,12 +918,6 @@ def da_prepare_traces(df_melted, fixed_y_value, fixed_y_value_db, fixed_y_value_
     return traces, means, y_values, ci_levels
 
 def main_multi(wt_file, mt_files):
-    """
-    Build an arrow plot comparing WT vs multiple mutant datasets.
-    wt_file: file-like object for WT CSV.
-    mt_files: list of tuples (mt_file, mt_name) where mt_file is file-like and mt_name is annotation.
-    Returns a Plotly figure.
-    """
     wt_melted, wt_numeric = da_load_and_prepare_data(wt_file, "WT")
     n_genotypes = len(mt_files) + 1
     total_rows = 3 * n_genotypes
@@ -947,7 +932,6 @@ def main_multi(wt_file, mt_files):
         wt_melted, fixed_y_value, fixed_y_value_db, fixed_y_value_da8,
         is_pry1=True, is_background=False
     )
-    # Add WT traces in rows 1-3
     for trace in wt_traces:
         if "DD" in trace.name:
             master_fig.add_trace(trace, row=1, col=1)
@@ -1103,7 +1087,7 @@ def main_multi(wt_file, mt_files):
         )
     for (row_num, name) in genotype_annotations:
         master_fig.add_annotation(
-            x=-6,
+            x=-9,
             y=0.5,
             xref="x"+str(row_num),
             yref="y"+str(row_num),
@@ -1143,9 +1127,6 @@ def main_multi(wt_file, mt_files):
     )
     return master_fig
 
-################################################################################
-# Streamlit GUI Code
-################################################################################
 st.set_page_config(page_title="VNC-Quant/ VNC-Dist", layout="wide")
 st.title("2. VNC-Quant/ VNC-Dist")
 
@@ -1238,7 +1219,7 @@ if st.sidebar.button("Process"):
                         results.append((worm_measure.output_image_path, worm_measure.output_csv_path))
                         progress_text.text(f"Processed {idx}/{total_files}")
                     except Exception as e:
-                        st.error(f"Error processing `{base_name}`: {e}")
+                        st.error(f"Error processing {base_name}: {e}")
                     progress_bar.progress(idx / total_files)
                 if results:
                     rd_csv_paths = [pair[1] for pair in results if pair[1].endswith("_RD.csv")]
@@ -1272,7 +1253,7 @@ if st.sidebar.button("Process"):
                     st.download_button(
                         label="Download Results as ZIP",
                         data=zip_buffer,
-                        file_name="VNC-Dist_Results.zip",
+                        file_name="VNC-Quaant_Results.zip",
                         mime="application/zip",
                     )
                     with results_container:
@@ -1292,7 +1273,7 @@ if st.sidebar.button("Process"):
                                                 resized_img = img.resize(new_size, resample_method)
                                                 st.image(resized_img, caption=image_name)
                                         except Exception as e:
-                                            st.error(f"Error displaying image `{image_name}`: {e}")
+                                            st.error(f"Error displaying image {image_name}: {e}")
                                         st.write(f"**RD:** {csv_name}")
                                         try:
                                             df_display = pd.read_csv(output_csv)
@@ -1300,7 +1281,7 @@ if st.sidebar.button("Process"):
                                             df_display = df_display.drop(columns=[col for col in columns_to_exclude if col in df_display.columns], errors="ignore")
                                             st.dataframe(df_display, height=300)
                                         except Exception as e:
-                                            st.error(f"Error displaying CSV `{csv_name}`: {e}")
+                                            st.error(f"Error displaying CSV {csv_name}: {e}")
 
 display_centered_text("Colavita & Perkins Lab")
 st.markdown("---")
@@ -1313,9 +1294,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-################################################################################
-# Create Tabs for Results, Dot plot, Arrow, Violin Box, Ranked position, and QQ-Shapiro
-################################################################################
 tabs = st.tabs(["Relative distances", "Dot", "Arrow", "Violin-Box", "Ranked position", "QQ-Shapiro"])
 
 with tabs[0]:
@@ -1343,9 +1321,9 @@ with tabs[1]:
 
 with tabs[2]:
     st.header("Arrow")
-    st.markdown("Upload one WT CSV file and one or more mutant CSV files. Enter the corresponding annotation for each dataset.")
-    wt_file = st.file_uploader("Upload WT CSV", type=["csv"], key="wt_arrow")
-    wt_annotation = st.text_input("WT Annotation", value="WT", key="wt_annot")
+    st.markdown("Upload your Ctrl and at least one mutant CSV file. Enter the corresponding annotation for each dataset.")
+    wt_file = st.file_uploader("Upload Ctrl CSV", type=["csv"], key="wt_arrow")
+    wt_annotation = st.text_input("Ctrl Annotation", value="WT", key="wt_annot")
     mt_files = st.file_uploader("Upload Mutant CSV(s)", type=["csv"], accept_multiple_files=True, key="mt_arrow")
     mt_annotations = []
     if mt_files:
@@ -1355,18 +1333,17 @@ with tabs[2]:
             mt_annotations.append(annot)
     if st.button("Run"):
         if not wt_file:
-            st.error("Please upload a WT CSV file.")
+            st.error("Please upload a Ctrl CSV file.")
         elif not mt_files:
             st.error("Please upload at least one mutant CSV file.")
         elif any([ann.strip() == "" for ann in mt_annotations]):
             st.error("Please provide annotations for all mutant datasets.")
         else:
-            # Prepare list of tuples (mutant file, annotation)
             mt_list = list(zip(mt_files, mt_annotations))
             try:
                 fig_arrow = main_multi(wt_file, mt_list)
                 st.plotly_chart(fig_arrow, use_container_width=True)
-                st.success("Arrow analysis completed!")
+                st.success("Neuron displacements completed!")
             except Exception as e:
                 st.error(f"Error in Arrow analysis: {e}")
 
