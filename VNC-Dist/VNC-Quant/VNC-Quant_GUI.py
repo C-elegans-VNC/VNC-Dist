@@ -1,3 +1,4 @@
+#VNC-Quant/VNC-Dist    Colavita & Perkins Lab, Faculty of Medicine UOttawa
 import streamlit as st
 import tkinter as tk
 from tkinter import filedialog, simpledialog, messagebox
