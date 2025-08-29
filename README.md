@@ -1,6 +1,6 @@
 [![SAM-Plus](https://img.shields.io/docker/image-size/ssaha078/sam_plus_vnc/latest.svg?label=SAM-Plus)](https://hub.docker.com/r/ssaha078/sam_plus_vnc)
 [![VNC-Quant](https://img.shields.io/docker/image-size/ssaha078/vnc_quant_gui/latest.svg?label=VNC-Quant)](https://hub.docker.com/r/ssaha078/vnc_quant_gui)
-[![Cite Paper](https://img.shields.io/badge/Cite%20Paper-green)](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract)
+[![Cite Paper](https://img.shields.io/badge/Cite%20Paper-green)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331188)
 [![Colavita & Perkins Lab](https://img.shields.io/badge/Colavita%20%26%20Perkins%20Lab-darkred)](https://www.uottawa.ca/faculty-medicine/)
 
 
@@ -29,7 +29,7 @@
 
 * VNC-Dist pipeline(Ventral Nerve Cord Distances)(v1.0), an open-source user-friendly GUI-based software toolbox designed to overcome the limitations of subjective motoneuron positioning analysis in microscopy.
 
-* To learn more about it, read the [paper](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract).
+* To learn more about it, read the [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331188) in Plos One.
 * For insights into the significance of this pipeline for studying neuronal positioning in the VNC of *C. elegans*, please refer to the following [paper](https://www.cell.com/developmental-cell/fulltext/S1534-5807(17)30210-1) from our lab:
 
 Shah, Pavak K., et al. "PCP and SAX-3/Robo pathways cooperate to regulate convergent extension-based nerve cord assembly in C. elegans." Developmental cell 41.2 (2017): 195-203.
@@ -49,10 +49,10 @@ The following figure outlines the design of the VNC-Dist pipeline. First, CZI im
 
 
 # CITATION
-If you use VNC-Dist, please cite the [paper](https://www.biorxiv.org/content/10.1101/2024.11.16.623955v2.abstract):
+If you use VNC-Dist, please cite the [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331188):
 
 
-Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based pipeline for quantification of neuronal positioning in the ventral nerve cord of C. elegans." bioRxiv (2024): 2024-11.
+Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based semi-automated pipeline for quantification of neuronal position in the C. elegans ventral nerve cord" Plos One (2025)
 
 
 # Installation and Usage
