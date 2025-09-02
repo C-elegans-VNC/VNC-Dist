@@ -52,7 +52,7 @@ The following figure outlines the design of the VNC-Dist pipeline. First, CZI im
 If you use VNC-Dist, please cite the [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331188):
 
 
-Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based semi-automated pipeline for quantification of neuronal position in the C. elegans ventral nerve cord" Plos One (2025)
+Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based semi-automated pipeline for quantification of neuronal position in the C. elegans ventral nerve cord." PloS one 20.8 (2025): e0331188.
 
 
 # Installation and Usage
