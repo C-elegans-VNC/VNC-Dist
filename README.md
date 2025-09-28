@@ -143,7 +143,7 @@ http://localhost:8502
 docker ps 
 ```
 
-Your containers appear in the list as ssaha078/vnc_quant_gui:latest (VNC-Quant) and sam_plus_vnc:latest (SAM-Plus), each with its container ID.
+Your containers appear in the list as ssaha078/vnc_quant_gui:v2 (VNC-Quant) and sam_plus_vnc:latest (SAM-Plus), each with its container ID.
 
 ### To stop the running container:
  ```bash
