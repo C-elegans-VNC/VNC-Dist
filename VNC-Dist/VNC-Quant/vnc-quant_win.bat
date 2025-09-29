@@ -8,7 +8,7 @@ REM Open the app URL in your default browser
 start "" http://localhost:8501
 
 REM Run the container using your updated image (note the underscore)
-docker run --rm --name vnc-quant-gui -p 8501:8501 vnc_quant_gui:latest >nul 2>&1
+docker run -it --rm -p 8501:8501 --name vnc-quant-gui ssaha078/vnc_quant_gui:v2 >nul 2>&1
 
 REM Monitor the container until it exits
 :loop
@@ -23,3 +23,4 @@ docker stop vnc-quant-gui >nul 2>&1
 docker rm vnc-quant-gui >nul 2>&1
 
 exit
+
