@@ -54,7 +54,7 @@ If you use VNC-Dist, please cite the [paper](https://journals.plos.org/plosone/a
 
 Saharkhiz, Saber, et al. "VNC-Dist: A machine learning-based semi-automated pipeline for quantification of neuronal position in the C. elegans ventral nerve cord." PloS one 20.8 (2025): e0331188.
 
-# Webinar (Tutorial)
+# Webinar/Tutorial
 To learn more about both the methodology and applications of VNC-Dist, see the I2K 2025 webinar below:
 <p>
   <a href="https://youtu.be/ZxngGrqAr_Y">
