@@ -115,7 +115,7 @@ docker build -t sam-plus-vnc .
 ```
 4) Launch the GUI:
 ```bash
-docker run -d -p 8502:8501 sam_plus_vnc:latest
+docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
 ```
 
 5)  Open your web browser and navigate to:(port: 8502)
