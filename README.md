@@ -133,7 +133,7 @@ docker pull ssaha078/sam_plus_vnc:latest
 ```
 2) Launch the GUI from your command prompt:
  ```bash
-docker run -d -p 8502:8501 ssaha078/sam_plus_vnc:latest
+docker run -it --rm --gpus all -p 8502:8501 sam-plus-vnc
 ```
 3)  Open your web browser and navigate to:(port: 8502)
  ```bash
