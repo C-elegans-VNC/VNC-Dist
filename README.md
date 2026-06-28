@@ -87,7 +87,7 @@ ssaha078/vnc-quant-gui:latest
 ```
 2) Launch the GUI from your command prompt:
 ```bash
-docker run -it --rm -p 8501:8501 --name vnc-quant-gui ssaha078/vnc_quant_gui:V6
+docker run -it --rm -p 8501:8501 --name vnc-quant-gui ssaha078/vnc-quant-gui:latest
 ```
 3)  Open your web browser and navigate to:(port: 8501)
  ```bash
