@@ -81,7 +81,7 @@ Execute the pipeline using Docker images by installing [Docker](https://www.dock
 
 ### for Windows, Mac, or Linux:
 
-1) Download this web-based GUI from Docker Hub: (fully functional offline)
+1) Download this web-based GUI from Docker Hub:
 ```bash
 docker pull ssaha078/vnc-quant-gui:latest
 ```
