@@ -126,7 +126,7 @@ http://localhost:8502
 ### for Linux:
 
 
-1) Download this web-based GUI from Docker Hub: (fully functional offline)
+1) Download this web-based GUI from Docker Hub:
 
 ```bash
 docker pull ssaha078/sam_plus_vnc:latest
